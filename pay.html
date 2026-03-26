@@ -1,0 +1,52 @@
+<div class="box">
+    <h2>Thanh toán</h2>
+
+    <p><b>Gói:</b> <span id="product"></span></p>
+    <p class="price"><span id="price"></span>đ</p>
+
+    <p><b>MB Bank</b></p>
+
+    <!-- STK + COPY -->
+    <p><b>STK:</b></p>
+    <p onclick="copy('0588807300000')" style="cursor:pointer;color:#22c55e">
+        0588807300000 (bấm để copy)
+    </p>
+
+    <p><b>Chủ TK:</b> Cao Minh Duy</p>
+
+    <!-- NỘI DUNG + COPY -->
+    <p><b>Nội dung:</b></p>
+    <p id="nd" onclick="copyND()" style="color:#22c55e;cursor:pointer"></p>
+
+    <p style="font-size:13px;color:#fbbf24">
+        ⚠️ Để lại số điện thoại của bạn sau nội dung bank chính
+    </p>
+
+    <button onclick="paid()">Tôi đã thanh toán</button>
+</div>
+
+<script>
+product.innerText = localStorage.getItem("product");
+price.innerText = localStorage.getItem("price");
+
+// tạo nội dung
+let nd = "MDUYK" + Math.floor(100000+Math.random()*900000);
+document.getElementById("nd").innerText = nd;
+
+// COPY STK
+function copy(text){
+    navigator.clipboard.writeText(text);
+    alert("📋 Đã copy số tài khoản!");
+}
+
+// COPY NỘI DUNG
+function copyND(){
+    navigator.clipboard.writeText(nd);
+    alert("📋 Đã copy nội dung chuyển khoản!");
+}
+
+// nút thanh toán
+function paid(){
+    alert("Đã ghi nhận thanh toán! Vui lòng chờ xác nhận.");
+}
+</script>
